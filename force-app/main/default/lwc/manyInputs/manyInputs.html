@@ -1,0 +1,15 @@
+<template>
+  <lightning-card title="Many Input Fields" icon-name="utility:connected_apps">
+    <div class="slds-card__body slds-card__body_inner">
+      <template for:each={inputs} for:item="inputName">
+        <lightning-input
+          type="text"
+          key={inputName}
+          name={inputName}
+          label={inputName}
+          onchange={onInputChange}
+        ></lightning-input>
+      </template>
+    </div>
+  </lightning-card>
+</template>

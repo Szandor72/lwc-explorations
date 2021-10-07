@@ -1,0 +1,32 @@
+<template>
+  <lightning-card title="LWC" icon-name="utility:connected_apps">
+    <div class="slds-card__body slds-card__body_inner">
+      <lightning-button
+        label="Throw CustomException"
+        onclick={throwCustomException}
+      ></lightning-button>
+      <lightning-button
+        label="Throw AuraHandledException"
+        onclick={throwAuraHandledException}
+      ></lightning-button>
+      <lightning-button
+        label="Throw DML Exception"
+        onclick={throwDMLException}
+      ></lightning-button>
+      <lightning-button
+        label="Divide by Zero"
+        onclick={divideByZero}
+      ></lightning-button>
+      <lightning-input
+        class="slds-p-around_small"
+        type="toggle"
+        label="Handle Errors"
+        onclick={toggleErrorHandling}
+      ></lightning-input>
+    </div>
+    <div slot-name="footer" class="slds-card__footer">
+      <lightning-badge slot-name="footer" label="LWC Apex Error Demo">
+      </lightning-badge>
+    </div>
+  </lightning-card>
+</template>

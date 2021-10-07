@@ -1,0 +1,72 @@
+<template>
+  <lightning-card
+    title="Parent-Child-Lifecycle Demo (Open Browser JSConsole!)"
+    icon-name="utility:connected_apps"
+  >
+    <div class="app slds-p-around_x-large">
+      <!-- content with toggle button -->
+      <section>
+        <div class="content">
+          <p>
+            Today is:
+            <c-date-viewer
+              show-day-of-week="true"
+              log-public-properties={logPublicProperties}
+            >
+            </c-date-viewer>
+          </p>
+
+          <p if:true={showTomorrow}>
+            Tomorrow:
+            <c-date-viewer
+              show-next-day-of-week="true"
+              log-public-properties={logPublicProperties}
+            >
+            </c-date-viewer>
+          </p>
+
+          <c-throw-error if:true={throwError}></c-throw-error>
+        </div>
+
+        <lightning-button
+          label="Toggle Tomorrow"
+          onclick={toggleTomorrow}
+        ></lightning-button>
+      </section>
+
+      <!-- Meta Controls for Logs etc -->
+      <section class="controls slds-p-around_medium">
+        <h2 class="slds-text-heading_small slds-p-vertical_small">
+          Additional Controls (all outputs shown in console)
+        </h2>
+
+        <lightning-input
+          type="checkbox"
+          checked={logChildComponentAccess}
+          name="child-access"
+          label="(c-app) Try to access c-date-viewer in all life cycle hooks"
+          onchange={toggleChildComponentAccessLog}
+        >
+        </lightning-input>
+
+        <lightning-input
+          type="checkbox"
+          checked={throwError}
+          name="throw-error"
+          label="(c-app) Load component that throws an Error"
+          onchange={toggleThrowError}
+        >
+        </lightning-input>
+
+        <lightning-input
+          type="checkbox"
+          checked={logPublicProperties}
+          name="public-properties"
+          label="(c-date-viewer) Try to access public properties in all life cycle hooks"
+          onchange={toggleLogPublicProperties}
+        >
+        </lightning-input>
+      </section>
+    </div>
+  </lightning-card>
+</template>

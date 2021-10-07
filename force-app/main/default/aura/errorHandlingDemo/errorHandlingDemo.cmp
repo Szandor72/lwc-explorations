@@ -1,0 +1,43 @@
+<aura:component
+  implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+  access="global"
+  controller="JavascriptExceptions"
+>
+  <aura:attribute
+    name="handleErrors"
+    type="Boolean"
+    default="false"
+    access="private"
+    description="Enables Exception Error Handling in console"
+  />
+
+  <lightning:card title="Aura" iconName="utility:connected_apps">
+    <div class="slds-card__body slds-card__body_inner">
+      <lightning:button
+        label="Throw CustomException"
+        onclick="{!c.onThrowCustomExceptionButtonClick}"
+      />
+      <lightning:button
+        label="Throw AuraHandledException"
+        onclick="{!c.onThrowAuraHandledExceptionButtonClick}"
+      />
+      <lightning:button
+        label="Throw DML Exception"
+        onclick="{!c.onThrowDMLExceptionButtonClick}"
+      />
+      <lightning:button
+        label="Divide by Zero"
+        onclick="{!c.onDivideByZeroButtonClick}"
+      />
+      <lightning:input
+        class="slds-var-p-around_small"
+        type="toggle"
+        label="Handle Errors"
+        checked="{!v.handleErrors}"
+      ></lightning:input>
+    </div>
+    <aura:set attribute="footer">
+      <lightning:badge label="Aura Apex Error Demo" />
+    </aura:set>
+  </lightning:card>
+</aura:component>
