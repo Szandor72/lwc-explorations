@@ -7,8 +7,7 @@
 
 ![image](https://user-images.githubusercontent.com/16804218/136413542-e95476cf-2c36-4aaa-96e1-7aea2cdb17b3.png)
 
-
 # Installation
 
 - sfdx force:source:push
-- sfdx force:permset:assign lwc_explorations
+- sfdx force:user:permset:assign -n lwc_explorations
